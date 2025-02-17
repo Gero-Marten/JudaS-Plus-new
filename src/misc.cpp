@@ -93,7 +93,7 @@ namespace {
 
 /// Version number. If Version is left empty, then compile date in the format
 /// DD-MM-YY and show in engine_info.
-const string Version = "1.01";
+const string Version = "1.02";
 
 #ifdef _WIN32
 bool LPMessage = false;
