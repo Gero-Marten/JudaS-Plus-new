@@ -135,7 +135,7 @@ void init(OptionsMap& o) {
     o["NNUE StrategyPositionalWeight"] 
         << Option(0, -12, 12, on_strategy_positional_weight); // Positional weight adjustment.
     o["Exploration Factor"] << Option(2, 0, 10, [](const Option& v) {
-	    explorationFactor = float(int(v)) / 10.0;
+	    Judas::Search::exploration_factor = float(int(v)) / 10.0;
 });
     o["Dynamic Exploration"] << Option(true);
 }
