@@ -111,9 +111,9 @@ void init(OptionsMap& o) {
     o["Experience Book Max Moves"] << Option(16, 1, 100);
     o["EvalFile"] << Option(EvalFileDefaultNameBig, on_eval_file);
     o["EvalFileSmall"] << Option(EvalFileDefaultNameSmall, on_eval_file);
-o["Select Style"] << Option(
+    o["Select Style"] << Option(
     "Default var Default var Aggressive var Defensive var Positional", "Default", // Default value.
-    [](const Option& opt) {
+        [](const Option& opt) {
         std::string selectedStyle = static_cast<std::string>(opt);
         sync_cout << "info string Select Style is now: " << selectedStyle << sync_endl;
 
@@ -134,7 +134,9 @@ o["Select Style"] << Option(
         << Option(0, -12, 12, on_strategy_material_weight); // Material weight adjustment.
     o["NNUE StrategyPositionalWeight"] 
         << Option(0, -12, 12, on_strategy_positional_weight); // Positional weight adjustment.
-    o["Exploration Factor"] << Option(0.2, 0.0, 1.0);
+    o["Exploration Factor"] << Option(2, 0, 10, [](const Option& v) {
+	    explorationFactor = float(int(v)) / 10.0;
+});
     o["Dynamic Exploration"] << Option(true);
 }
 
